@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="39fcfbe3-cbb6-43f3-beb7-08b9a61fff30" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../3. Design Patterns/1. Basics/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../3. Design Patterns/1. Basics/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../3. Design Patterns/1. Basics/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../3. Design Patterns/1. Basics/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../3. Design Patterns/1. Basics/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../3. Design Patterns/1. Basics/Basics.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../3. Design Patterns/1. Basics/src/FizzBuzz.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../3. Design Patterns/1. Basics/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../3. Design Patterns/2. OO/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../3. Design Patterns/2. OO/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../3. Design Patterns/2. OO/.idea/checkstyle-idea.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../3. Design Patterns/2. OO/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../3. Design Patterns/2. OO/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../3. Design Patterns/2. OO/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../3. Design Patterns/2. OO/curs2.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../3. Design Patterns/2. OO/src/boxing/BoxingMatch.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../3. Design Patterns/2. OO/src/boxing/Fighter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../3. Design Patterns/2. OO/src/boxing/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../3. Design Patterns/2. OO/src/inheritance/Child.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../3. Design Patterns/2. OO/src/inheritance/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../3. Design Patterns/2. OO/src/inheritance/Parent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../3. Design Patterns/2. OO/src/interfaces/Clock.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../3. Design Patterns/2. OO/src/interfaces/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../3. Design Patterns/2. OO/src/interfaces/SamsungWatch.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../3. Design Patterns/2. OO/src/interfaces/SmartWatch.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../3. Design Patterns/2. OO/src/overflow/Dog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../3. Design Patterns/2. OO/src/overflow/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../3. Design Patterns/2. OO/src/overflow/PoliteDog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../5. Generics/src/currency/Currency.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../5. Generics/src/currency/ExchangeDesk.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../5. Generics/src/currency/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../5. Generics/src/currency/RON.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../5. Generics/src/currency/USD.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../.." />
+  </component>
+  <component name="ProjectId" id="2Q0vxByhN0rtXpxj2EHZr2zakYB" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/extra/java/GAD2023/Challenges/4. Exception and IO/generic linked list/src/Main.java&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
+      <setting name="path" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workDir" value="file://$PROJECT_DIR$" />
+      <setting name="debug" value="false" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="39fcfbe3-cbb6-43f3-beb7-08b9a61fff30" name="Changes" comment="" />
+      <created>1684503557664</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1684503557664</updated>
+    </task>
+    <servers />
+  </component>
+</project>
