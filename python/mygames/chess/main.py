@@ -78,27 +78,61 @@ def draw_pieces():
 
 
 def check_move(player, piece, src_row, src_col, dest_row, dest_col):
-    piece = piece.lower()
-    if piece == "p":
-        # can't move to another column
-        if src_col != dest_col:
-            return False
-        
+    # check pawn move
+    if piece == "P" or piece == "p":
         if player == 1:
-            if src_row <= dest_row:
+            if src_col == dest_col:
+                # first move can be 2 squares
+                if src_row == 6:
+                    if src_row - dest_row == 2: 
+                        return starting_board[src_row - 1][src_col] == " " and starting_board[src_row - 2][src_col] == " "
+                    if src_row - dest_row == 1:
+                        return starting_board[src_row - 1][src_col] == " "
+                    if src_row - dest_row > 2:
+                        return False
+                else:
+                    if src_row - dest_row == 1:
+                        return starting_board[src_row - 1][src_col] == " "
+                    else:
+                        return False
+            elif src_row - dest_row == 1:
+                return starting_board[dest_row][dest_col] != " "
+            else:
                 return False
-            if src_row == 6 and src_row - dest_row > 2:
-                return False
-
+            
         if player == 2:
-            if src_row >= dest_row:
+            if src_col == dest_col:
+                # first move can be 2 squares
+                if src_row == 1:
+                    if dest_row - src_row == 2:
+                        return starting_board[src_row + 1][src_col] == " " and starting_board[src_row + 1][src_col] == " "
+                    if dest_row - src_row == 1:
+                        return starting_board[src_row + 1][src_col] == " "
+                    if dest_row - src_row > 2:
+                        return False
+                else:
+                    if dest_row - src_row == 1:
+                        return starting_board[src_row + 1][src_col] == " "
+                    else:
+                        return False
+            elif dest_row - src_row == 1:
+                return starting_board[dest_row][dest_col] != " "
+            else:
                 return False
-            if src_row == 1 and dest_row - src_row > 2:
-                return False
+    
+    # check knight move
+    if piece == "N" or piece == "n":
+        return ((dest_row == src_row - 2 and dest_col == src_col - 1) or
+                (dest_row == src_row - 2 and dest_col == src_col + 1) or
+                (dest_row == src_row - 1 and dest_col == src_col + 2) or
+                (dest_row == src_row + 1 and dest_col == src_col + 2) or
+                (dest_row == src_row + 2 and dest_col == src_col + 1) or
+                (dest_row == src_row + 2 and dest_col == src_col - 1) or
+                (dest_row == src_row + 1 and dest_col == src_col - 2) or
+                (dest_row == src_row - 1 and dest_col == src_col - 2))
+    
     return True
-        
-        
-        
+                        
             
 # main game loop
 while not game_over:
@@ -163,7 +197,3 @@ while not game_over:
     draw_board()
     draw_pieces()
     pygame.display.update()
-
-
-
-

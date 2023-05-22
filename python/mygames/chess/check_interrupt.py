@@ -1,11 +1,9 @@
 import pygame
 import sys
 
-
 def close_game():
     pygame.quit()
     sys.exit()
-
 
 def check_user_interrupt(event):
     if event.type == pygame.QUIT:
