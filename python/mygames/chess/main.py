@@ -131,6 +131,29 @@ def check_move(player, piece, src_row, src_col, dest_row, dest_col):
                 (dest_row == src_row + 1 and dest_col == src_col - 2) or
                 (dest_row == src_row - 1 and dest_col == src_col - 2))
     
+    # check bishop move
+    if piece == "B" or piece == "b":
+        # check if the number of rows moved is equal to the number of columns moved (diagonal move)
+        if abs(dest_row - src_row) == abs(dest_col - src_col):
+            # Check if there are any obstructions along the diagonal path
+            row_step = 1 if dest_row > src_row else -1
+            col_step = 1 if dest_col > src_col else -1
+            
+            current_row = src_row + row_step
+            current_col = src_col + col_step
+            
+            while current_row != dest_row and current_col != dest_col:
+                # Check if there is a piece at each position along the diagonal path
+                if starting_board[current_row][current_col] != " ":
+                    return False  # Bishop's path is obstructed
+                current_row += row_step
+                current_col += col_step
+            
+            return True  # Valid bishop move
+            
+        else:
+            return False  # Invalid bishop move
+
     return True
                         
             
