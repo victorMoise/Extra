@@ -77,6 +77,71 @@ def draw_pieces():
                 screen.blit(piece_image, (col * SQUARE_SIZE, row * SQUARE_SIZE))
 
 
+def valid_bishop_move(src_row, src_col, dest_row, dest_col):
+    if abs(dest_row - src_row) == abs(dest_col - src_col):
+        # Check if there are any obstructions along the diagonal path
+        row_step = 1 if dest_row > src_row else -1
+        col_step = 1 if dest_col > src_col else -1
+            
+        current_row = src_row + row_step
+        current_col = src_col + col_step
+            
+        while current_row != dest_row and current_col != dest_col:
+            # Check if there is a piece at each position along the diagonal path
+            if starting_board[current_row][current_col] != " ":
+                return False  # Bishop's path is obstructed
+            current_row += row_step
+            current_col += col_step
+            
+        return True  # Valid bishop move
+            
+    else:
+        return False  # Invalid bishop move
+
+
+def valid_rook_move(src_row, src_col, dest_row, dest_col):
+    if src_row == dest_row:
+        # check if there are any obstructions along the horizontal path
+        col_step = 1 if dest_col > src_col else -1
+        current_col = src_col + col_step
+        
+        while current_col != dest_col:
+            # check if there is a piece at each position along the horizontal path
+            if starting_board[src_row][current_col] != " ":
+                return False  # rook's path is obstructed
+            current_col += col_step
+            
+        return True  # valid rook move
+    
+    elif src_col == dest_col:
+        # vheck if there are any obstructions along the vertical path
+        row_step = 1 if dest_row > src_row else -1
+        current_row = src_row + row_step
+        
+        while current_row != dest_row:
+            # vheck if there is a piece at each position along the vertical path
+            if starting_board[current_row][src_col] != " ":
+                return False  # rook's path is obstructed
+            current_row += row_step
+            
+        return True  # valid rook move
+    
+    else:
+        return False  # invalid rook move
+    
+
+
+def valid_king_move(src_row, src_col, dest_row, dest_col):
+    row_diff = abs(dest_row - src_row)
+    col_diff = abs(dest_col - src_col)
+
+    if row_diff <= 1 and col_diff <= 1:
+        return True  # valid king move
+    else:
+        return False  # invalid king move
+
+
+
 def check_move(player, piece, src_row, src_col, dest_row, dest_col):
     # check pawn move
     if piece == "P" or piece == "p":
@@ -134,27 +199,20 @@ def check_move(player, piece, src_row, src_col, dest_row, dest_col):
     # check bishop move
     if piece == "B" or piece == "b":
         # check if the number of rows moved is equal to the number of columns moved (diagonal move)
-        if abs(dest_row - src_row) == abs(dest_col - src_col):
-            # Check if there are any obstructions along the diagonal path
-            row_step = 1 if dest_row > src_row else -1
-            col_step = 1 if dest_col > src_col else -1
-            
-            current_row = src_row + row_step
-            current_col = src_col + col_step
-            
-            while current_row != dest_row and current_col != dest_col:
-                # Check if there is a piece at each position along the diagonal path
-                if starting_board[current_row][current_col] != " ":
-                    return False  # Bishop's path is obstructed
-                current_row += row_step
-                current_col += col_step
-            
-            return True  # Valid bishop move
-            
-        else:
-            return False  # Invalid bishop move
+        return valid_bishop_move(src_row, src_col, dest_row, dest_col)
+    
+    # check rook move
+    if piece == "r" or piece == "R":
+        return valid_rook_move(src_row, src_col, dest_row, dest_col)
 
-    return True
+    # check queen move (moves like a rook or bishop)
+    if piece == "q" or piece == "Q":
+        return valid_bishop_move(src_row, src_col, dest_row, dest_col) or valid_rook_move(src_row, src_col, dest_row, dest_col)
+
+    # check king move
+    if piece == "k" or piece == "K":
+        return valid_king_move(src_row, src_col, dest_row, dest_col)
+
                         
             
 # main game loop
