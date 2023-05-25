@@ -18,6 +18,7 @@ DARK_SQUARE = (181, 136, 99)
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Chess Game")
 
+moves = []
 starting_board = [
     ["r", "n", "b", "q", "k", "b", "n", "r"],
     ["p", "p", "p", "p", "p", "p", "p", "p"],
@@ -131,10 +132,39 @@ def valid_rook_move(src_row, src_col, dest_row, dest_col):
     
 
 
-def valid_king_move(src_row, src_col, dest_row, dest_col):
+def valid_king_move(player, src_row, src_col, dest_row, dest_col):
     row_diff = abs(dest_row - src_row)
     col_diff = abs(dest_col - src_col)
+    castle_direction = "right" if dest_col > src_col else "left"
+    incremenent = 7 if player == 1 else 0
 
+    # check castles and move the rook
+    if col_diff == 2 and row_diff == 0:
+        for move in moves:
+            if move[0] == "K" and player == 1:
+                return False
+            if move[0] == "k" and player == 2:
+                return False
+            
+            if castle_direction == "right":
+                if move[0] == "R" and move[1] == "g" and move[2] == "7":
+                    return False
+                if starting_board[incremenent][6] == " " and starting_board[incremenent][5] == " ":
+                    starting_board[incremenent][7] = " "
+                    starting_board[incremenent][5] = "R" if player == 1 else "r"
+                    return True
+                
+                return False
+                
+            if castle_direction == "left":
+                if move[0] == "R" and move[1] == "a" and move[2] == "7":
+                    return False
+                if starting_board[incremenent][1] == " " and starting_board[incremenent][2] == " " and starting_board[incremenent][3] == " ":
+                    starting_board[incremenent][0] = " "
+                    starting_board[incremenent][3] = "R" if player == 1 else "r"
+                    return True
+                return False
+            
     if row_diff <= 1 and col_diff <= 1:
         return True  # valid king move
     else:
@@ -209,9 +239,17 @@ def check_move(player, piece, src_row, src_col, dest_row, dest_col):
     if piece == "q" or piece == "Q":
         return valid_bishop_move(src_row, src_col, dest_row, dest_col) or valid_rook_move(src_row, src_col, dest_row, dest_col)
 
-    # check king move
+    # check king move and move the rook if castles
     if piece == "k" or piece == "K":
-        return valid_king_move(src_row, src_col, dest_row, dest_col)
+        return valid_king_move(player, src_row, src_col, dest_row, dest_col)
+
+
+def construct_move(piece, src_row, src_col, dest_row, dest_col):
+    if piece == "K" or piece == "k":
+        if abs(src_col - dest_col) == 2 and src_row - dest_row == 0:
+            return "O-O" if dest_col > src_col else "O-O-O"
+    move = piece + chr(src_col + 97) + str(src_row) + chr(dest_col + 97) + str(dest_row)
+    return move
 
                         
             
@@ -244,12 +282,17 @@ while not game_over:
                         selected_piece_position = (cell_row, cell_col)
                     # move the piece
                     elif check_move(player, selected_piece, selected_piece_position[0], selected_piece_position[1], cell_row, cell_col):
+                        # append move to the list
+                        moves.append(construct_move(selected_piece, selected_piece_position[0], 
+                                                    selected_piece_position[1], cell_row, cell_col))
+                        # move the piece
                         starting_board[cell_row][cell_col] = selected_piece
                         starting_board[selected_piece_position[0]][selected_piece_position[1]] = " "
                         selected_piece_position = None
                         selected_piece = None
+                        # change the player
                         player = 2
-            
+                        
             # black pieces
             else:
                 if selected_piece == None:
@@ -267,13 +310,20 @@ while not game_over:
                         selected_piece_position = (cell_row, cell_col)
                     # move the piece
                     elif check_move(player, selected_piece, selected_piece_position[0], selected_piece_position[1], cell_row, cell_col):
+                        # append move to the list
+                        moves.append(construct_move(selected_piece, selected_piece_position[0], 
+                                                    selected_piece_position[1], cell_row, cell_col))
+                        # move the piece
                         starting_board[cell_row][cell_col] = selected_piece
                         starting_board[selected_piece_position[0]][selected_piece_position[1]] = " "
                         selected_piece_position = None
                         selected_piece = None
+                        # change the player
                         player = 1
+                        
             
-            print(cell_row, cell_col)
+            print(moves)
+            # print(cell_row, cell_col)
 
     draw_board()
     draw_pieces()
