@@ -129,7 +129,6 @@ def valid_rook_move(src_row, src_col, dest_row, dest_col):
     
     else:
         return False  # invalid rook move
-    
 
 
 def valid_king_move(player, src_row, src_col, dest_row, dest_col):
@@ -169,7 +168,6 @@ def valid_king_move(player, src_row, src_col, dest_row, dest_col):
         return True  # valid king move
     else:
         return False  # invalid king move
-
 
 
 def check_move(player, piece, src_row, src_col, dest_row, dest_col):
@@ -250,8 +248,7 @@ def construct_move(piece, src_row, src_col, dest_row, dest_col):
             return "O-O" if dest_col > src_col else "O-O-O"
     move = piece + chr(src_col + 97) + str(src_row) + chr(dest_col + 97) + str(dest_row)
     return move
-
-                        
+            
             
 # main game loop
 while not game_over:
@@ -321,7 +318,6 @@ while not game_over:
                         # change the player
                         player = 1
                         
-            
             print(moves)
             # print(cell_row, cell_col)
 

@@ -1,0 +1,30 @@
+test2
+change content test
+on multple lines 
+test
+!ENDNOTE!
+note3
+also this has been changed
+!ENDNOTE!
+note1
+content note1
+multiple lines
+!ENDNOTE!
+note2
+content note2
+!ENDNOTE!
+note10
+This is a really long line. The outpus should still fit in the box, not go past the intended box width limit.
+!ENDNOTE!
+note00
+this content has been changed! 
+!ENDLINE!
+
+
+!ENDNOTE!
+note01
+content of note 01
+!ENDNOTE!
+note000
+content of note 000
+!ENDNOTE!
